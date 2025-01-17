@@ -1,0 +1,11 @@
+[Unit]
+Description=Prometheus
+After=network.target
+
+[Service]
+User=root
+ExecStart=/usr/local/bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/var/lib/prometheus/ --web.console.libraries=/usr/local/bin/prometheus/consoles --web.console.templates=/usr/local/bin/prometheus/templates
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
